@@ -11,7 +11,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/larse514/iaminspector/aardvark/aardvarkproxy/handler"
+	"github.com/larse514/iaminspector/repokid/repokidproxy/handler"
 )
 
 var (
