@@ -1,8 +1,5 @@
 
-docker build . -t local:latest
-docker run -e DYNAMO_TABLE_REGION=us-east-1 -e DYNAMO_TABLE_ENDPOINT=https://dynamodb.us-east-1.amazonaws.com -e DYNAMO_TABLE_ACCOUNT_NUMBER=417615409974 -e AARDVARK_API_LOCATION=http://localhost local:latest
-
-
+./run_local.sh repokidproxy 1 us-east-1 https://dynamodb.us-east-1.amazonaws.com 417615409974 http://localhost
 #Endpoints
 
 1. /repokid/roles/accounts/{accountId}

@@ -22,13 +22,14 @@ RUN apk add --update make
 RUN make
 
 # final stage
-FROM alpine
+FROM python:2
+RUN mkdir /app
 WORKDIR /app
 COPY --from=build-proxy /go/src/github.com/larse514/iaminspector/repokid/repokidproxy/repokidproxy /app
-COPY --from=build-repo /repokid/repokid /app
-COPY --from=build-repo /repokid/config.json /app
+COPY --from=build-repo /repokid/repokid /app/repokid
+COPY --from=build-repo /repokid/config.json .
 
 ADD bin/run.sh /app
 
 RUN chmod +x run.sh
-ENTRYPOINT [ "./run.sh" ]
+# ENTRYPOINT [ "./run.sh" ]
