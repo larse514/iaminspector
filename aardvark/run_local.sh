@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# us-east-1
+# https://dynamodb.us-east-1.amazonaws.com
+# 417615409974
+# http://localhost
+
+IMAGE=$1
+TAG=$2
+AARDVARK_ROLE=$3
+AARDVARK_DB_URI=$4
+AWS_ACCESS_KEY_ID=$5
+AWS_SECRET_ACCESS_KEY=$6
+ACCOUNTS=$7
+
+docker build . -t ${IMAGE}:${TAG}
+
+docker run -p 5000:5000 -e AARDVARK_ROLE=${AARDVARK_ROLE} -e AARDVARK_DB_URI=${AARDVARK_DB_URI} -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e ACCOUNTS=${ACCOUNTS} ${IMAGE}:${TAG}
