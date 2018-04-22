@@ -2,7 +2,6 @@
 
 # us-east-1
 # https://dynamodb.us-east-1.amazonaws.com
-# 417615409974
 # http://localhost
 
 IMAGE=$1
